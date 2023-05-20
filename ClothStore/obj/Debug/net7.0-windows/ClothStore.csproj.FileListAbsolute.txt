@@ -56,3 +56,5 @@ C:\Users\Лев\source\repos\ClothStore\ClothStore\bin\Debug\net7.0-windows\runt
 C:\Users\Лев\source\repos\ClothStore\ClothStore\bin\Debug\net7.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Лев\source\repos\ClothStore\ClothStore\bin\Debug\net7.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\ClothStore.csproj.CopyComplete
+C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\StaffWindow.g.cs
+C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\StaffWindow.baml

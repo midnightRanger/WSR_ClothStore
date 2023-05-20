@@ -25,5 +25,11 @@ namespace ClothStore
             InitializeComponent();
             guestBTN.Background = new SolidColorBrush(Color.FromRgb(73, 140, 81));
         }
+
+        private void guestBTN_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+            new StaffWindow().Show(); 
+        }
     }
 }

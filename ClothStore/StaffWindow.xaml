@@ -7,6 +7,38 @@
         mc:Ignorable="d"
         Title="StaffWindow" Height="450" Width="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition />
+            <RowDefinition Height="20"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Column="1" Grid.Row="1">
+            <ListViewItem Height="50">
+                                    
+                    <Grid Height="40">
+                        <Grid.ColumnDefinitions>
+
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="10"/>
+                            <ColumnDefinition />
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Image Source="Images/logo.png" Grid.Column="2"></Image>
+                    </Grid>
+                
+
+
+
+            </ListViewItem>
+        </ListView>
     </Grid>
 </Window>
