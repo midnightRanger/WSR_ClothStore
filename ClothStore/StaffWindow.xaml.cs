@@ -33,7 +33,13 @@ namespace ClothStore
             //var orders = _db.Order.Include(o=>o.OrderProducts).ThenInclude(s=>s.Product).FirstOrDefault();
             //var productsList = orders.OrderProducts.Select(o => o.Product).ToList();
 
-            staffLV.ItemsSource = _db.Product.ToList();
+            List<Product> products = _db.Product.ToList();
+
+            foreach (var product in products)
+                product.ProductPhoto = (product.ProductPhoto != null) ? $"Images/{product.ProductPhoto}" : "Images/picture.png" ;
+
+
+            staffLV.ItemsSource = products;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
