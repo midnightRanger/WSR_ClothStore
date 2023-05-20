@@ -14,8 +14,8 @@ namespace ClothStore.Models
         public string ProductArticleNumber { get; set; }
         public string? ProductName { get; set; }
         public string? UnitOfMeasurement { get; set; }
-        public double ProductCost { get; set; }
-        public int MaxDiscount { get; set; }
+        public decimal ProductCost { get; set; }
+        public int ProductMaxDiscount { get; set; }
         public string? ProductManufacturer { get; set; }
         public string? ProductSupplier { get; set; }
         public string? ProductCategory { get; set; }

@@ -30,12 +30,15 @@ namespace ClothStore
             InitializeComponent();
             _db = new ApplicationContext();
 
-            var orders = _db.Order.Include(o=>o.OrderProducts).FirstOrDefault();
-            var products = _db.Product.ToList();
+            //var orders = _db.Order.Include(o=>o.OrderProducts).ThenInclude(s=>s.Product).FirstOrDefault();
+            //var productsList = orders.OrderProducts.Select(o => o.Product).ToList();
 
-            var productsList = products.Where(s => s.OrderID == orders.OrderID).ToList(); ;
+            staffLV.ItemsSource = _db.Product.ToList();
         }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
 
+        }
     }
 }

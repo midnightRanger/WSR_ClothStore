@@ -28,8 +28,9 @@ namespace ClothStore
 
         private void guestBTN_Click(object sender, RoutedEventArgs e)
         {
+            
+            new StaffWindow().Show();
             Close();
-            new StaffWindow().Show(); 
         }
     }
 }

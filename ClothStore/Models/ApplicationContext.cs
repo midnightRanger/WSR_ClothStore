@@ -11,12 +11,12 @@ namespace ClothStore.Models
     public class ApplicationContext : DbContext
     {
         public DbSet<Order> Order { get; set; }
-        public DbSet<OrderProduct> Product { get; set; }
+        public DbSet<OrderProduct> OrderProduct { get; set; }
         public DbSet<PickupPoint> PickupPoint { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<Product> Product { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<User> User { get; set; }
-        public DbSet<OrderProduct> OrderProduct { get; set; }
+
 
         public ApplicationContext(DbContextOptions options) : base(options)
         {
