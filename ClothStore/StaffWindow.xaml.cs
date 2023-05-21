@@ -1,8 +1,11 @@
 ﻿using ClothStore.Models;
+using ClothStore.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,12 +26,17 @@ namespace ClothStore
     public partial class StaffWindow : Window
     {
         private readonly ApplicationContext _db;
-        private string _searchText; 
+        private string _searchText;
+        private StaffWindowViewModel _staff; 
+        
 
         public StaffWindow()
         {
             InitializeComponent();
             _db = new ApplicationContext();
+            _staff = new StaffWindowViewModel();
+            this.DataContext = _staff; 
+            
 
             //var orders = _db.Order.Include(o=>o.OrderProducts).ThenInclude(s=>s.Product).FirstOrDefault();
             //var productsList = orders.OrderProducts.Select(o => o.Product).ToList();
@@ -39,6 +47,7 @@ namespace ClothStore
                 product.ProductPhoto = (product.ProductPhoto != null) ? $"Images/{product.ProductPhoto}" : "Images/picture.png" ;
 
             staffLV.ItemsSource = products;
+            showItemsValueTB.Text = $"Выведено: {products.Count}/{products.Count}";
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -52,6 +61,9 @@ namespace ClothStore
 
             var products = _db.Product.Where(p=>p.ProductName.ToUpper().StartsWith(_searchText.ToUpper()) ||
                 p.ProductDescription.ToUpper().StartsWith(_searchText.ToUpper())).ToList();
+
+
+            _staff.ShowValueText = $"Выведено: {products.Count}/{_db.Product.ToList().Count()}";
             staffLV.ItemsSource = products; 
 
         }
