@@ -23,7 +23,7 @@ namespace ClothStore
     public partial class StaffWindow : Window
     {
         private readonly ApplicationContext _db;
-
+        private string _searchText; 
 
         public StaffWindow()
         {
@@ -42,6 +42,21 @@ namespace ClothStore
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void searchTB_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            _searchText = searchTB.Text;
+
+            var products = _db.Product.Where(p=>p.ProductName.ToUpper().StartsWith(_searchText.ToUpper()) ||
+                p.ProductDescription.ToUpper().StartsWith(_searchText.ToUpper())).ToList();
+            staffLV.ItemsSource = products; 
+
+        }
+
+        private void staffLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }
