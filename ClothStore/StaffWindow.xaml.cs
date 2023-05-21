@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -27,26 +28,34 @@ namespace ClothStore
     {
         private readonly ApplicationContext _db;
         private string _searchText;
-        private StaffWindowViewModel _staff; 
-        
+        private StaffWindowViewModel _staff;
+        private ObservableCollection<Product> _productOC;
+
+
 
         public StaffWindow()
         {
             InitializeComponent();
             _db = new ApplicationContext();
             _staff = new StaffWindowViewModel();
-            this.DataContext = _staff; 
-            
+            this.DataContext = _staff;
+
 
             //var orders = _db.Order.Include(o=>o.OrderProducts).ThenInclude(s=>s.Product).FirstOrDefault();
             //var productsList = orders.OrderProducts.Select(o => o.Product).ToList();
 
+            _productOC = new();
             List<Product> products = _db.Product.ToList();
 
-            foreach (var product in products)
-                product.ProductPhoto = (product.ProductPhoto != null) ? $"Images/{product.ProductPhoto}" : "Images/picture.png" ;
 
-            staffLV.ItemsSource = products;
+
+            foreach (var product in products)
+            {
+                product.ProductPhoto = (product.ProductPhoto != null) ? $"Images/{product.ProductPhoto}" : "Images/picture.png";
+                _productOC.Add(product);
+            }
+
+            staffLV.ItemsSource = _productOC;
             showItemsValueTB.Text = $"Выведено: {products.Count}/{products.Count}";
         }
 
@@ -62,9 +71,13 @@ namespace ClothStore
             var products = _db.Product.Where(p=>p.ProductName.ToUpper().StartsWith(_searchText.ToUpper()) ||
                 p.ProductDescription.ToUpper().StartsWith(_searchText.ToUpper())).ToList();
 
+            _productOC.Clear(); 
+            foreach (var product in products)
+                _productOC.Add(product);
+
 
             _staff.ShowValueText = $"Выведено: {products.Count}/{_db.Product.ToList().Count()}";
-            staffLV.ItemsSource = products; 
+ 
 
         }
 

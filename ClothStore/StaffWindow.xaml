@@ -23,7 +23,7 @@
 
         <TextBox x:Name="searchTB" Grid.Row="1" Grid.Column="1" TextChanged="searchTB_TextChanged"></TextBox>
         <TextBlock x:Name="showItemsValueTB" Grid.Row="2" Grid.Column="1" Text="{Binding Path=ShowValueText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBlock>
-        <ListView Name="staffLV" Grid.Column="1" Grid.Row="3" SelectionChanged="staffLV_SelectionChanged">
+        <ListView Name="staffLV" Grid.Column="1" Grid.Row="3" ItemsSource="{Binding Products}"  SelectionChanged="staffLV_SelectionChanged">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">
                     <Style.Triggers>
