@@ -22,7 +22,7 @@
         <ListView Name="staffLV" Grid.Column="1" Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <WrapPanel>
+                    <WrapPanel >
                         <Image Height="50" Width="50" Source="{Binding ProductPhoto}" Margin="0,0,10,0" ></Image>
                         <StackPanel>
                             <TextBlock Text="{Binding ProductName}"/>

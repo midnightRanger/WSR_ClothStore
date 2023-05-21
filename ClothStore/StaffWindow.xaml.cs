@@ -38,7 +38,6 @@ namespace ClothStore
             foreach (var product in products)
                 product.ProductPhoto = (product.ProductPhoto != null) ? $"Images/{product.ProductPhoto}" : "Images/picture.png" ;
 
-
             staffLV.ItemsSource = products;
         }
 

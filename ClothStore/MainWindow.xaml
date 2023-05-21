@@ -41,6 +41,7 @@
         <PasswordBox x:Name="passwordTB" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3"/>
 
         <Button x:Name="guestBTN" Grid.Row="11" Grid.Column="1" Content="Enter As Guest" FontFamily="Comic Sans MS" Click="guestBTN_Click" ></Button>
+        <Button x:Name="loginBTN" Grid.Row="11" Grid.Column="3" Content="Login" FontFamily="Comic Sans MS" Click="loginBTN_Click" ></Button>
 
     </Grid>
 </Window>

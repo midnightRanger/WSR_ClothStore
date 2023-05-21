@@ -16,8 +16,8 @@ namespace ClothStore.Models
         public string? UserPatronymic { get; set; }
         public string? UserLogin { get; set; }
         public string? UserPassword { get; set; }
-        public int UserRole { get; set; }
-        public Role Role { get; set; }
+        public int RoleID { get; set; }
+        public Role? Role { get; set; }
 
     }
 }
