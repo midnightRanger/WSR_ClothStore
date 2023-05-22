@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 
 namespace ClothStore.Models.ViewModels
 {
-    public class BaseViewModel: INotifyPropertyChanged
-    {
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        protected void OnPropertyChanged(string propertyName = "") { 
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    public class BaseViewModel : INotifyPropertyChanged
+
+    {
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName = "") {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));   
         }
+        
     }
 }

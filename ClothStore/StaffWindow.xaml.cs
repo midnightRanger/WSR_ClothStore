@@ -1,4 +1,5 @@
-﻿using ClothStore.Models;
+﻿using ClothStore.Converter;
+using ClothStore.Models;
 using ClothStore.Models.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
@@ -31,7 +32,7 @@ namespace ClothStore
         private StaffWindowViewModel _staff;
         private ObservableCollection<Product> _productOC;
 
-
+        public class BoolToStringConverter : BoolToValueConverter<String> { }
 
         public StaffWindow()
         {
@@ -83,6 +84,25 @@ namespace ClothStore
 
         private void staffLV_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+
+        }
+
+        private void sortBTN_Click(object sender, RoutedEventArgs e)
+        {
+            _productOC.Clear();
+
+            List<Product>? products;
+            _staff.Sort = !_staff.Sort;
+
+
+            if (_staff.Sort)
+                products = _db.Product.OrderByDescending(p => p.ProductCost).ToList();
+            else
+                products = _db.Product.OrderBy(p => p.ProductCost).ToList();
+
+            foreach (var product in products) 
+                _productOC.Add(product);    
+
 
         }
     }

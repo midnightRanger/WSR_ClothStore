@@ -9,6 +9,14 @@ namespace ClothStore.Models.ViewModels
 {
     public class StaffWindowViewModel : BaseViewModel
     {
+        private bool _sort; 
+        public bool Sort { get => _sort; set {
+
+                _sort = value;
+                OnPropertyChanged(nameof(Sort)); 
+            } 
+        }
+
         private string _showValueText;
         public string ShowValueText { get => _showValueText; set {
                 _showValueText = value;

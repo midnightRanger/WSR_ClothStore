@@ -58,3 +58,4 @@ C:\Users\Лев\source\repos\ClothStore\ClothStore\bin\Debug\net7.0-windows\runt
 C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\ClothStore.csproj.CopyComplete
 C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\StaffWindow.g.cs
 C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\StaffWindow.baml
+C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\GeneratedInternalTypeHelper.g.cs
