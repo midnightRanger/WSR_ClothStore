@@ -28,7 +28,15 @@
                 </Style.Triggers>
             </Style>
             </DataGrid.CellStyle>
-
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="Image">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate >
+                            <Image Source="{Binding ProductPhoto}" Height="70" Width="70"></Image>
+                        </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
 
         </DataGrid>
     </Grid>

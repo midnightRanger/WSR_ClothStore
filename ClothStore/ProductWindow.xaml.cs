@@ -24,22 +24,25 @@ namespace ClothStore
     {
         AdminMenuWindowViewModel adminMenuWindowViewModel;
         ApplicationContext _db;
-        ObservableCollection<Product> productOC;
+        ObservableCollection<Product> _productOC;
         public ProductWindow()
         {
             InitializeComponent();
             _db = new();
-            productOC = new();
+            _productOC = new();
 
             adminMenuWindowViewModel = new();
             this.DataContext = adminMenuWindowViewModel;
 
             var products = _db.Product.ToList();
 
-            foreach (var product in products )
-                productOC.Add( product );
+            foreach (var product in products)
+            {
+                product.ProductPhoto = (product.ProductPhoto != null) ? $"/ClothStore;component/{product.ProductPhoto}" : "Images/picture.png";
+                _productOC.Add(product);
+            }
 
-            productDG.ItemsSource = productOC;
+            productDG.ItemsSource = _productOC;
             
         }
     }
