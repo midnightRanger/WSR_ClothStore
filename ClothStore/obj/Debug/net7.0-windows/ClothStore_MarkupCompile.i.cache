@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\Users\Лев\source\repos\ClothStore\ClothStore\App.xaml
-2-2107625387
+4521928911
 
-17-41791201
+21-1032371384
 226-882350529
-MainWindow.xaml;StaffWindow.xaml;
+AdminMenuWindow.xaml;MainWindow.xaml;ProductWindow.xaml;StaffWindow.xaml;
 
-False
+True
 

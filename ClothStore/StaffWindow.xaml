@@ -45,7 +45,7 @@
                 <DataTemplate>
                     <WrapPanel >
                         <Image Height="50" Width="50" Source="{Binding ProductPhoto}" Margin="0,0,10,0" ></Image>
-                        <StackPanel>
+                        <StackPanel Margin="0,0,20,0">
                             <TextBlock Text="{Binding ProductName}"/>
                             <TextBlock Text="{Binding ProductManufacturer}"/>
                             <TextBlock Text="{Binding ProductCost}"/>

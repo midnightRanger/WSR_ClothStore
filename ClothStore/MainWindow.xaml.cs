@@ -1,4 +1,5 @@
 ﻿using ClothStore.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +50,7 @@ namespace ClothStore
                     MessageBox.Show("Поля не могут состоять из пустых пробелов", "Ошибка", MessageBoxButton.OK);
                 else
                 {
-                    var user = _db.User.FirstOrDefault(u => u.UserLogin == login);
+                    var user = _db.User.Include(u=>u.Role).FirstOrDefault(u => u.UserLogin == login);
 
                     if (user == null)
                         MessageBox.Show("Пользователь не найден", "Ошибка", MessageBoxButton.OK);
@@ -60,8 +61,27 @@ namespace ClothStore
                         else
                         {
                             MessageBox.Show("Успешная авторизация", "Успех", MessageBoxButton.OK);
-                            new StaffWindow().Show();
-                            Close();
+
+                            switch (user.Role.RoleName) {
+                                case "Client": {
+                                        new StaffWindow().Show();
+                                        Close();
+                                    } break;
+
+                                case "Manager":
+                                    {
+                                        new StaffWindow().Show();
+                                        Close();
+                                    }
+                                    break;
+                                case "Admin":
+                                    {
+                                        new AdminMenuWindow().Show();
+                                        Close();
+                                    }
+                                    break;
+                            }
+                            
                         }
                     }
                 }
