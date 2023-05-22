@@ -57,6 +57,8 @@ namespace ClothStore
             }
 
             staffLV.ItemsSource = _productOC;
+            staffLV.SelectedValuePath = "ProductArticleNumber"; 
+
             showItemsValueTB.Text = $"Выведено: {products.Count}/{products.Count}";
         }
 
@@ -105,5 +107,40 @@ namespace ClothStore
 
 
         }
+
+        private void staffLV_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var itemToDelete = _db.Product.FirstOrDefault(p => p.ProductArticleNumber == staffLV.SelectedValue);
+
+            if (itemToDelete != null)
+            {
+                try
+                {
+                    _db.Product.Remove(itemToDelete);
+                    _db.SaveChanges();
+                    UpdateOC();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Произошла ошибка! Описание: {ex.Message}", "Ошибка", MessageBoxButton.OK);
+                }
+
+                MessageBox.Show($"Удаление успешно произошло", "Успех", MessageBoxButton.OK);
+
+            }
+            else {
+                MessageBox.Show($"Предмета для удаления не существует", "Проблема..", MessageBoxButton.OK);
+            }
+        }
+
+        private void UpdateOC() {
+
+            _productOC.Clear();
+            var products = _db.Product.ToList();
+
+            foreach (var product in products)
+                _productOC.Add(product);
+        }
+
     }
 }
