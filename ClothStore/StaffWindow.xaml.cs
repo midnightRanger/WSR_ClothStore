@@ -31,6 +31,7 @@ namespace ClothStore
         private string _searchText;
         private StaffWindowViewModel _staff;
         private ObservableCollection<Product> _productOC;
+        private ObservableCollection<String> _productMan; 
 
         public class BoolToStringConverter : BoolToValueConverter<String> { }
 
@@ -46,15 +47,27 @@ namespace ClothStore
             //var productsList = orders.OrderProducts.Select(o => o.Product).ToList();
 
             _productOC = new();
+            _productMan = new();
             List<Product> products = _db.Product.ToList();
 
 
 
             foreach (var product in products)
             {
-                product.ProductPhoto = (product.ProductPhoto != null) ? $"Images/{product.ProductPhoto}" : "Images/picture.png";
+                product.ProductPhoto = (product.ProductPhoto != null) ? $"/ClothStore;component/{product.ProductPhoto}" : "Images/picture.png";
                 _productOC.Add(product);
             }
+
+            var productMans = _db.Product.Select(p => p.ProductManufacturer).Distinct().ToList();
+
+            
+
+            foreach (var man in productMans)
+                _productMan.Add(man);
+
+            filterCB.ItemsSource = _productMan; 
+            filterCB.SelectedIndex = 0;
+            
 
             staffLV.ItemsSource = _productOC;
             staffLV.SelectedValuePath = "ProductArticleNumber"; 
@@ -142,5 +155,13 @@ namespace ClothStore
                 _productOC.Add(product);
         }
 
+        private void filterCB_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var products = _db.Product.Where(p => p.ProductManufacturer == filterCB.SelectedValue).ToList();
+
+            _productOC.Clear();
+            foreach (var product in products)
+                _productOC.Add(product);
+        }
     }
 }

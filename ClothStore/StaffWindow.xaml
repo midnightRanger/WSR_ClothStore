@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
             <RowDefinition />
             <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
@@ -30,7 +30,7 @@
         <TextBox x:Name="searchTB" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" TextChanged="searchTB_TextChanged"></TextBox>
         <TextBlock x:Name="showItemsValueTB" Grid.Row="2" Grid.Column="1" Text="{Binding Path=ShowValueText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"></TextBlock>
         <Button x:Name="sortBTN" Grid.Row="2" Grid.Column="3" Content="{Binding Sort, Converter={StaticResource BooleanToStringConverter}}" Click="sortBTN_Click"></Button>
-        
+        <ComboBox x:Name="filterCB" Grid.Row="2" Grid.Column="1" Margin="2" FontSize="10" ItemsSource="{Binding Manufacturers}" SelectionChanged="filterCB_SelectionChanged"></ComboBox>
         <ListView Name="staffLV" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" ItemsSource="{Binding Products}" MouseDoubleClick="staffLV_MouseDoubleClick"  SelectionChanged="staffLV_SelectionChanged">
             <ListView.ItemContainerStyle>
                 <Style TargetType="{x:Type ListViewItem}">

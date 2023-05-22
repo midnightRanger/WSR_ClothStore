@@ -25,5 +25,8 @@ namespace ClothStore.Models.ViewModels
 
         private ObservableCollection<Product> _products;
         public ObservableCollection<Product> Products { get => _products;  }
+
+        private ObservableCollection<string> _manufacturers;
+        public ObservableCollection<string> Manufacturers { get => _manufacturers; }
     }
 }
