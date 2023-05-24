@@ -13,6 +13,11 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <ProjectReference Include="..\SF2022User{01}Lib\SF2022User{01}Lib.csproj" />
+  </ItemGroup>
+
   <ItemGroup>
     <Resource Include="Images\B111C5.jpeg" />
     <Resource Include="Images\E112C6.JPG" />

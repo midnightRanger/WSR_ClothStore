@@ -1,5 +1,6 @@
 ﻿using ClothStore.Models;
 using Microsoft.EntityFrameworkCore;
+using SF2022User_01_Lib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace ClothStore
 {
     /// <summary>
@@ -29,6 +31,11 @@ namespace ClothStore
             _db = new ApplicationContext();
             guestBTN.Background = new SolidColorBrush(Color.FromRgb(73, 140, 81));
             loginBTN.Background = new SolidColorBrush(Color.FromRgb(73, 140, 81));
+
+            Calculations calc = new();
+
+            var test = Calculations.AvailablePeriods(new TimeSpan[] { new TimeSpan(10, 0, 0),
+            new TimeSpan(11, 0, 0) }, new int[] {30, 30 }, new TimeSpan(8,45,0), new TimeSpan(19, 45, 0), 30);
         }
 
         private void guestBTN_Click(object sender, RoutedEventArgs e)

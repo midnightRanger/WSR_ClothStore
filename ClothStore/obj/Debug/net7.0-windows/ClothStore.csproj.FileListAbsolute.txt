@@ -63,3 +63,5 @@ C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\Admi
 C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\AdminMenuWindow.baml
 C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\ProductWindow.g.cs
 C:\Users\Лев\source\repos\ClothStore\ClothStore\obj\Debug\net7.0-windows\ProductWindow.baml
+C:\Users\Лев\source\repos\ClothStore\ClothStore\bin\Debug\net7.0-windows\SF2022User{01}Lib.dll
+C:\Users\Лев\source\repos\ClothStore\ClothStore\bin\Debug\net7.0-windows\SF2022User{01}Lib.pdb

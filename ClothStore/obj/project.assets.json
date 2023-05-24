@@ -1027,6 +1027,19 @@
             "rid": "win"
           }
         }
+      },
+      "SF2022User{01}Lib/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/SF2022User{01}Lib.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SF2022User{01}Lib.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     }
   },
@@ -3171,12 +3184,18 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "SF2022User{01}Lib/1.0.0": {
+      "type": "project",
+      "path": "../SF2022User{01}Lib/SF2022User{01}Lib.csproj",
+      "msbuildProject": "../SF2022User{01}Lib/SF2022User{01}Lib.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net7.0-windows7.0": [
       "Microsoft.EntityFrameworkCore >= 7.0.5",
-      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5"
+      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.5",
+      "SF2022User{01}Lib >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3205,7 +3224,11 @@
       "frameworks": {
         "net7.0-windows7.0": {
           "targetAlias": "net7.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Лев\\source\\repos\\ClothStore\\SF2022User{01}Lib\\SF2022User{01}Lib.csproj": {
+              "projectPath": "C:\\Users\\Лев\\source\\repos\\ClothStore\\SF2022User{01}Lib\\SF2022User{01}Lib.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
