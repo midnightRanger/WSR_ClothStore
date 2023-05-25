@@ -1,11 +1,15 @@
 ﻿using ClothStore.Converter;
 using ClothStore.Models;
 using ClothStore.Models.ViewModels;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query.Internal;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -162,6 +166,40 @@ namespace ClothStore
             _productOC.Clear();
             foreach (var product in products)
                 _productOC.Add(product);
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Choosed ID: {staffLV.SelectedValue}");
+
+            Document doc = new();
+
+            PdfWriter.GetInstance(doc, new FileStream("C:\\Users\\Лев\\source\\repos\\ClothStore\\ClothStore\\pdf.pdf", FileMode.OpenOrCreate, FileAccess.ReadWrite));
+            doc.Open();
+            BaseFont baseFont = BaseFont.CreateFont("C:\\Windows\\Fonts\\arial.ttf", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+            Font font = new Font(baseFont, Font.DEFAULTSIZE, Font.NORMAL);
+
+            iTextSharp.text.Paragraph header = new iTextSharp.text.Paragraph("РувфуHASdadsa", font);
+
+            PdfPTable table = new(_productOC.Count);
+            PdfPCell cell = new PdfPCell(new Phrase("new column"));
+
+            table.AddCell(table);
+
+            header.Alignment = Element.ALIGN_CENTER; 
+            
+            
+            doc.Add(header);
+            doc.Add(header);
+            doc.Close();
+
+            var p = new Process();
+            p.StartInfo = new ProcessStartInfo("C:\\Users\\Лев\\source\\repos\\ClothStore\\ClothStore\\pdf.pdf")
+            {
+                UseShellExecute = true
+            };
+            p.Start();
+
         }
     }
 }
